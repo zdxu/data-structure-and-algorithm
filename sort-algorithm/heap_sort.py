@@ -1,14 +1,18 @@
 # -*- coding=utf-8 -*-
+import sys
+import os
+from werkzeug import import_string
 
 
-from tree.heap import MaxHeap
+sys.path.append(os.getcwd().replace("sort-algorithm", ""))
+MaxHeap = import_string("tree.heap.MaxHeap")
 
 
 def heap_sort_method(arr: list):
     heap = MaxHeap(arr)
     heap_len = heap.length
     data = []
-    for i in heap_len:
+    for i in range(heap_len):
         data.append(heap.pop())
     return data
 
