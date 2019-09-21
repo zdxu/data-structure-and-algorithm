@@ -19,26 +19,26 @@ def quick_sort_method(arr: list):
     return sub_arr_sort(arr)
 
 
+def swap(arr, idx1, idx2):
+    temp = arr[idx1]
+    arr[idx1] = arr[idx2]
+    arr[idx2] = temp
+
+
 def partition(arr, left_idx, right_idx, pivot_idx):
     compare_val = arr[pivot_idx]
     i = left_idx
     j = right_idx
     while i < j:
         if i == pivot_idx:
-            temp = arr[i]
+            swap(arr, i, i + 1)
             pivot_idx = pivot_idx + 1
-            arr[i] = arr[pivot_idx]
-            arr[pivot_idx] = temp
         if arr[i] > compare_val:
             if j > pivot_idx:
-                temp = arr[i]
-                arr[i] = arr[j]
-                arr[j] = temp
+                swap(arr, i, j)
                 j = j - 1
             else:
-                temp = arr[pivot_idx]
-                arr[pivot_idx] = arr[pivot_idx - 1]
-                arr[pivot_idx - 1] = temp
+                swap(arr, pivot_idx, pivot_idx - 1)
                 pivot_idx = pivot_idx - 1
                 j = pivot_idx
         else:
@@ -58,5 +58,6 @@ if __name__ == "__main__":
     arr = [1, 4, 10, 6, 7, 5, 4, 3, 2, 11, 15, 19, 13]
     print(quick_sort_method(arr))
 
-    quick_sort_method_2(arr, 0, 12)
+    arr = [4, 2, 3, 2]
+    quick_sort_method_2(arr, 0, 3)
     print(arr)
