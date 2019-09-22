@@ -1,7 +1,12 @@
 # -*- coding=utf-8 -*-
+import sys
+import os
+from werkzeug import import_string
 
 
-from insertion_sort import insert_sort_method
+sys.path.append(os.getcwd().replace("sort_algorithm", ""))
+insert_sort_method = \
+    import_string("sort_algorithm.insertion_sort.insert_sort_method")
 
 
 def shell_sort_method(arr: list, step):
