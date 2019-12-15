@@ -1,13 +1,16 @@
 # -*- coding=utf-8 -*-
 import math
 
+arr = []
+
 
 class MaxHeap:
 
-    def __init__(self, arr=[]):
+    def __init__(self, arr=None):
         self._data = [None]  # 根节点不存放具体值，方便操作，也可放限值
-        for val in arr:
-            self.push(val)
+        if arr:
+            for val in arr:
+                self.push(val)
 
     def _val_to_top(self, idx):
         # 当前 idx 所处树高
@@ -94,3 +97,6 @@ if __name__ == "__main__":
     heap_len = heap.length
     for i in range(heap_len):
         print(heap.pop())
+
+
+    math.floor(1.2)
